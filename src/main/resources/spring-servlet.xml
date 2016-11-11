@@ -7,6 +7,15 @@
     <mvc:view-controller path="/" view-name="forward:/index"/>
     <context:annotation-config/>
     <mvc:annotation-driven/>
+
+    <mvc:default-servlet-handler/>
+    <!-- 静态资源访问（不拦截此目录下的东西的访问） -->
+    <mvc:resources location="/WEB-INF/img/" mapping="/img/**"/>
+    <mvc:resources mapping="/scripts/**" location="/WEB-INF/scripts/"/>
+    <mvc:resources mapping="/content/**" location="/WEB-INF/content/"/>
+    <!-- 当上面要访问的静态资源不包括在上面的配置中时，则根据此配置来访问 -->
+
+
     <context:component-scan base-package="com.zhang.picpig.controllers" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
@@ -14,14 +23,44 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/index"/>
             <mvc:exclude-mapping path="/member/**"/>
+            <mvc:exclude-mapping path="/content/**"/>
+            <mvc:exclude-mapping path="/scripts/**"/>
+            <mvc:exclude-mapping path="/img/**"/>
             <bean class="com.zhang.picpig.interceptor.AuthInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-        <property name="prefix" value="/WEB-INF/views"></property> <!-- 我这里的视图直接放在WebRoot下的 -->
-        <property name="suffix" value=".jsp"></property>
+    <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/views/"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">5</prop><!--刷新模板的周期，单位为秒 -->
+                <prop key="default_encoding">UTF-8</prop><!--模板的编码格式 -->
+                <prop key="locale">UTF-8</prop><!-- 本地化设置 -->
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="time_format">HH:mm:ss</prop>
+                <prop key="number_format">0.####</prop>
+                <prop key="boolean_format">true,false</prop>
+                <prop key="whitespace_stripping">true</prop>
+                <prop key="tag_syntax">auto_detect</prop>
+                <prop key="url_escaping_charset">UTF-8</prop>
+            </props>
+        </property>
     </bean>
+
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="cache" value="true" />
+        <property name="suffix" value=".ftl"/>
+        <property name="order" value="1"/>
+        <property name="contentType" value="text/html;charset=utf-8"/>
+    </bean>
+    <!--
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+            <property name="prefix" value="/WEB-INF/views/"></property>
+            <property name="suffix" value=".jsp"></property>
+        </bean>
+    -->
 </beans>

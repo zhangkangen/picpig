@@ -1,13 +1,15 @@
 package com.zhang.picpig.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by zhang on 2016/11/10.
  */
-public class SUser {
+public class SUser implements Serializable {
 
-    public Integer id;
-    public String username;
-    public String password;
+    private Integer id;
+    private String username;
+    private String password;
 
     public Integer getId() {
         return id;

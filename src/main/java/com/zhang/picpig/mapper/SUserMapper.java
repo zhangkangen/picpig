@@ -11,6 +11,12 @@ import org.springframework.stereotype.Repository;
 @CacheNamespace(size = 512)
 public interface SUserMapper {
 
-    @Select("select count(*) from SUser")
-    public Integer count();
+    @Select("select * from SUser where id=#{id}")
+    public SUser getUser(@Param("id")Integer id);
+
+    @Select("select * from SUser where username=#{username}")
+    public SUser getUserByUsername(@Param("username")String username);
+
+    @Insert("insert into SUser(username,password) values(#{username},#{password})")
+    public void insert(@Param("SUser") SUser user);
 }

@@ -17,8 +17,6 @@ public class HomeController {
 
     @RequestMapping("/index")
     public String index(){
-        String str = sUserService.getNameById(1);
-        System.out.println(str);
         System.out.println("ok");
         return "index";
     }

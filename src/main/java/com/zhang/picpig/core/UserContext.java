@@ -16,6 +16,6 @@ public class UserContext {
         return current.get();
     }
     public void close(){
-        current.remove();;
+        current.remove();
     }
 }
