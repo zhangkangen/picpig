@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
  * Created by zhang on 2016/11/10.
  */
 @CacheNamespace(size = 512)
-@Repository(value = "sUserMapper")
 public interface SUserMapper {
 
     @Select("select count(*) from SUser")
