@@ -7,20 +7,24 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-5">
-            <h1>注册页面</h1>
-            <form role="form" action="/member/reg" method="post">
-                <div class="form-group">
-                    用户名: <input class="form-control" type="text" name="username">
+        <h1 class="h1">注册页面</h1>
+        <form role="form" class="col-md-6 form-horizontal" action="/member/reg" method="post">
+            <div class="form-group">
+                <label for="username" class="control-label col-md-2">用户名</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" name="username" placeholder="username" required>
                 </div>
-                <div class="form-group">
-                    密码:<input class="form-control" type="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label col-md-2">密码</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="password" name="password" placeholder="password" required>
                 </div>
-                <div class="form-group">
-                    <input class="form-control btn-default col-md-2" type="submit" value="注册">
-                </div>
-            </form>
-        </div>
+            </div>
+            <div class="form-group">
+                <input class="col-md-offset-2 col-md-2 btn btn-primary" type="submit" value="注册">
+            </div>
+        </form>
     </div>
 </div>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->

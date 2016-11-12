@@ -4,6 +4,7 @@ import com.zhang.picpig.core.SecurityUtil;
 import com.zhang.picpig.entity.SUser;
 import com.zhang.picpig.service.SUserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sun.security.provider.MD5;
@@ -12,6 +13,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,12 +29,13 @@ public class MemberController {
     SUserService sUserService;
 
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
-    public String login() {
+    public String login(ModelMap map) {
+        map.addAttribute("msg", "这是登陆页面");
         return "member/login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(SUser user, HttpServletRequest request, HttpServletResponse response) {
+    public void login(SUser user, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         SUser entity = sUserService.getUserByUsername(user.getUsername());
         if (entity == null) {
@@ -45,7 +48,7 @@ public class MemberController {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, 20);
 
-        String token = entity.getId() + ":" + entity.getPassword() + ":" + calendar.getTimeInMillis() + "secret";
+        String token = entity.getId() + ":" + entity.getPassword() + ":" + calendar.getTimeInMillis() + ":secret";
 
         String md5Token = SecurityUtil.GetMD5Code(token);
 
@@ -55,7 +58,10 @@ public class MemberController {
         cookie.setMaxAge(20 * 60);
         cookie.setPath("/");
         response.addCookie(cookie);
-        return "redirect:/index";
+
+        System.out.println(cookie.getMaxAge());
+
+        response.sendRedirect("/index");
     }
 
     @RequestMapping(value = "/reg", method = RequestMethod.GET)
@@ -76,5 +82,17 @@ public class MemberController {
             return "member/reg";
         }
         return "redirect:/index";
+    }
+
+    @RequestMapping("/logout")
+    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        Cookie cookie = new Cookie("Auth_Token","");
+        cookie.setMaxAge(-1);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        response.sendRedirect("/index");
+
+        response.flushBuffer();
     }
 }

@@ -8,14 +8,17 @@ import com.zhang.picpig.entity.SUser;
 public class UserContext {
     static final ThreadLocal<SUser> current = new ThreadLocal<SUser>();
 
-    public UserContext(SUser user){
+    public UserContext(SUser user) {
         current.set(user);
     }
-
-    public static SUser getCurrentUser(){
+    public static void setCurrentUser(SUser user){
+        current.set(user);
+    }
+    public static SUser getCurrentUser() {
         return current.get();
     }
-    public void close(){
+
+    public void close() throws Exception {
         current.remove();
     }
 }
