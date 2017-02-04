@@ -20,6 +20,7 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!--
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
@@ -31,6 +32,7 @@
             <bean class="com.zhang.picpig.interceptor.AuthInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+-->
 
     <bean id="jsonConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

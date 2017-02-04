@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * Created by zhang on 2016/11/12.
  */
-@Service
 public class CAlbumServiceImpl  implements CAlbumService{
     @Resource
     CAlbumDao cAlbumDao;

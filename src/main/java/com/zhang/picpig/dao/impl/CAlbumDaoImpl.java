@@ -11,7 +11,6 @@ import java.util.List;
 /**
  * Created by zhang on 2016/11/12.
  */
-@Repository
 public class CAlbumDaoImpl implements CAlbumDao {
 
     @Resource

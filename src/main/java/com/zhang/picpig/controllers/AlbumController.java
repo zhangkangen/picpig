@@ -23,20 +23,17 @@ import java.util.*;
 /**
  * Created by zhang on 2016/11/11.
  */
-@Controller
-@RequestMapping("/album")
+//@Controller
+//@RequestMapping("/album")
 public class AlbumController {
+
+    /*
 
     Logger logger = Logger.getLogger(AlbumController.class);
 
     @Resource
     CAlbumService cAlbumService;
 
-    /**
-     * 显示该用户的所有相册
-     *
-     * @return
-     */
     @RequestMapping("")
     public String album(ModelMap map) {
 
@@ -78,23 +75,13 @@ public class AlbumController {
         logger.debug(id);
          return cAlbumService.delete(id);
     }
-    /**
-     * 上传页面
-     *
-     * @return
-     */
+    /*
     @RequestMapping(value = "/upload", method = RequestMethod.GET)
     public String upload() {
         return "album/upload";
     }
 
-    /**
-     * 文件上传
-     *
-     * @param file
-     * @return
-     * @throws IOException
-     */
+
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(@RequestParam("file") MultipartFile file) throws IOException {
 
@@ -102,9 +89,12 @@ public class AlbumController {
 
         return "album/upload";
     }
-
+*/
+    /*
     @RequestMapping("/**")
     public String albumDefault(ModelMap map){
         return "album/album";
     }
+
+    */
 }

@@ -17,7 +17,6 @@ import javax.annotation.Resource;
 /**
  * Created by zhang on 2016/11/11.
  */
-@Repository
 public class SUserDaoImpl implements SUserDao {
     @Resource
     SqlSessionTemplate sqlSessionTemplate;

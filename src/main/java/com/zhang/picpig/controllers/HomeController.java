@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
 
-    @Resource
-    public SUserService sUserService;
+    //@Resource
+    //public SUserService sUserService;
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpServletResponse response){
