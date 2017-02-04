@@ -23,15 +23,14 @@ import java.util.*;
 /**
  * Created by zhang on 2016/11/11.
  */
-//@Controller
-//@RequestMapping("/album")
+@Controller
+@RequestMapping("/album")
 public class AlbumController {
 
-    /*
 
     Logger logger = Logger.getLogger(AlbumController.class);
 
-    @Resource
+    //@Resource
     CAlbumService cAlbumService;
 
     @RequestMapping("")
@@ -75,7 +74,7 @@ public class AlbumController {
         logger.debug(id);
          return cAlbumService.delete(id);
     }
-    /*
+
     @RequestMapping(value = "/upload", method = RequestMethod.GET)
     public String upload() {
         return "album/upload";
@@ -89,12 +88,9 @@ public class AlbumController {
 
         return "album/upload";
     }
-*/
-    /*
     @RequestMapping("/**")
     public String albumDefault(ModelMap map){
         return "album/album";
     }
 
-    */
 }

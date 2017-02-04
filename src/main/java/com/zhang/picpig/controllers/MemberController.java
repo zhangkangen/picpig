@@ -21,12 +21,12 @@ import java.util.Date;
 /**
  * Created by zhang on 2016/11/11.
  */
-//@Controller
-//@RequestMapping("/member")
+@Controller
+@RequestMapping("/member")
 public class MemberController {
 
-    /*
-    @Resource
+
+    //@Resource
     SUserService sUserService;
 
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
@@ -96,5 +96,5 @@ public class MemberController {
 
         response.flushBuffer();
     }
-    */
+
 }
