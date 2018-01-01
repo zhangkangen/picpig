@@ -85,6 +85,8 @@ public class CustomerConfig {
         return new DataSourceTransactionManager(dataSource);
     }
 
+    @Bean(name = "customerSqlSessionTemplate")
+    @Primary
     public SqlSessionTemplate customerSqlSessionTemplate(@Qualifier("customerSqlSessionFactory")SqlSessionFactory sqlSessionFactory)throws Exception{
         return  new SqlSessionTemplate(sqlSessionFactory);
     }
