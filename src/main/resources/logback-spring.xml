@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <logger name="org.springframework.scheduling">
-        <level value="info" />
-    </logger>
     <!-- 控制台打印日志的相关配置 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 日志格式 -->
@@ -16,14 +13,18 @@
             <!-- 匹配时的操作：接收 （记录） -->
             <onMatch>ACCEPT</onMatch>
             <!-- 不匹配时的操作：拒绝DENY（不记录）接受：ACCEPT（记录） -->
-            <onMismatch>ACCEPT</onMismatch>
+            <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
 
     <!-- 文件保存日志的相关配置 -->
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 保存日志文件的路径 -->
-        <!--     <file>D:/logs/admin_info.log</file> -->
+        <!-- 保存日志文件的路径
+       <file>e:/logs/admin_info.log</file>
+        -->
+
+        <!-- linux 路径
+        -->
         <file>/opt/bainuo/logs/info.log</file>
         <!-- 日志格式 -->
         <encoder>
@@ -40,8 +41,12 @@
         </filter>
         <!-- 循环政策：基于时间创建日志文件 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 日志文件名格式 -->
-            <fileNamePattern>/opt/picpig/logs/admin_info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 日志文件名格式
+            <fileNamePattern>e:/logs/admin_info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            -->
+            <!-- linux -->
+            <fileNamePattern>/opt/bainuo/logs/admin_info.%d{yyyy-MM-dd}.log</fileNamePattern>
+
             <!-- 最大保存时间：30天-->
             <maxHistory>30</maxHistory>
         </rollingPolicy>
@@ -49,9 +54,12 @@
 
 
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 保存日志文件的路径 -->
-        <!--     <file>D:/logs/admin_error.log</file> -->
-        <file>/opt/picpig/logs/error.log</file>
+        <!-- 保存日志文件的路径
+       <file>e:/logs/admin_error.log</file>
+        -->
+        <!-- linux路径
+         -->
+        <file>/opt/bainuo/logs/error.log</file>
         <!-- 日志格式 -->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%class:%line] - %m%n</pattern>
@@ -67,9 +75,12 @@
         </filter>
         <!-- 循环政策：基于时间创建日志文件 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 日志文件名格式 -->
-            <!--       <fileNamePattern>e:/logs/admin_error.%d{yyyy-MM-dd}.log</fileNamePattern> -->
-            <fileNamePattern>/opt/picpig/logs/admin_error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 日志文件名格式
+            <fileNamePattern>e:/logs/admin_error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            -->
+            <!-- linux
+             -->
+            <fileNamePattern>/opt/bainuo/logs/admin_error.%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- 最大保存时间：30天-->
             <maxHistory>30</maxHistory>
         </rollingPolicy>
