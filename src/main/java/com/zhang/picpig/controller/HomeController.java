@@ -3,6 +3,7 @@ package com.zhang.picpig.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * @author zxk
@@ -11,9 +12,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
 
+    @ApiIgnore
     @RequestMapping("")
     @ResponseBody
-    public String index(){
+    public String index() {
         return "Hello World";
+    }
+
+    @RequestMapping("login")
+    public String login() {
+        return "login";
     }
 }
