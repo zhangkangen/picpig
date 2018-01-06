@@ -19,6 +19,7 @@ public class HomeController {
         return "Hello World";
     }
 
+    @ApiIgnore
     @RequestMapping("login")
     public String login() {
         return "login";
