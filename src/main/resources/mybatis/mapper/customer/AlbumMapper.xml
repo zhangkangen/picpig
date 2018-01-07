@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhang.picpig.dao.customer.AlbumMapper">
+  <resultMap id="BaseResultMap" type="com.zhang.picpig.entity.customer.Album">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="album_cover" jdbcType="VARCHAR" property="albumCover" />
+    <result column="album_type" jdbcType="INTEGER" property="albumType" />
+    <result column="album_state" jdbcType="INTEGER" property="albumState" />
+    <result column="photo_num" jdbcType="INTEGER" property="photoNum" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="INTEGER" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted_tag" jdbcType="BIT" property="deletedTag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, memo, user_id, album_cover, album_type, album_state, photo_num, create_by, 
+    create_time, update_by, update_time, deleted_tag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from c_album
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from c_album
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.zhang.picpig.entity.customer.Album">
+    insert into c_album (id, title, memo, 
+      user_id, album_cover, album_type, 
+      album_state, photo_num, create_by, 
+      create_time, update_by, update_time, 
+      deleted_tag)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{albumCover,jdbcType=VARCHAR}, #{albumType,jdbcType=INTEGER}, 
+      #{albumState,jdbcType=INTEGER}, #{photoNum,jdbcType=INTEGER}, #{createBy,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deletedTag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.picpig.entity.customer.Album">
+    insert into c_album
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="albumCover != null">
+        album_cover,
+      </if>
+      <if test="albumType != null">
+        album_type,
+      </if>
+      <if test="albumState != null">
+        album_state,
+      </if>
+      <if test="photoNum != null">
+        photo_num,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deletedTag != null">
+        deleted_tag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="albumCover != null">
+        #{albumCover,jdbcType=VARCHAR},
+      </if>
+      <if test="albumType != null">
+        #{albumType,jdbcType=INTEGER},
+      </if>
+      <if test="albumState != null">
+        #{albumState,jdbcType=INTEGER},
+      </if>
+      <if test="photoNum != null">
+        #{photoNum,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedTag != null">
+        #{deletedTag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.picpig.entity.customer.Album">
+    update c_album
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="albumCover != null">
+        album_cover = #{albumCover,jdbcType=VARCHAR},
+      </if>
+      <if test="albumType != null">
+        album_type = #{albumType,jdbcType=INTEGER},
+      </if>
+      <if test="albumState != null">
+        album_state = #{albumState,jdbcType=INTEGER},
+      </if>
+      <if test="photoNum != null">
+        photo_num = #{photoNum,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedTag != null">
+        deleted_tag = #{deletedTag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.picpig.entity.customer.Album">
+    update c_album
+    set title = #{title,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      album_cover = #{albumCover,jdbcType=VARCHAR},
+      album_type = #{albumType,jdbcType=INTEGER},
+      album_state = #{albumState,jdbcType=INTEGER},
+      photo_num = #{photoNum,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted_tag = #{deletedTag,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

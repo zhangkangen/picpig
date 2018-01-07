@@ -37,11 +37,11 @@
                              targetPackage="com.zhang.picpig.dao.customer" targetProject="src/main/java">
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
-
-        <!--<table tableName="sys_user" domainObjectName="User"
+<!--
+        <table tableName="sys_user" domainObjectName="User"
                enableCountByExample="false" enableDeleteByExample="fasle"
                enableSelectByExample="false" enableUpdateByExample="false"
-               selectByExampleQueryId="fasle" />-->
+               selectByExampleQueryId="fasle" />
         <table tableName="sys_role" domainObjectName="Role"
                enableCountByExample="false" enableDeleteByExample="fasle"
                enableSelectByExample="false" enableUpdateByExample="false"
@@ -51,6 +51,10 @@
                enableSelectByExample="false" enableUpdateByExample="false"
                selectByExampleQueryId="fasle" />
         <table tableName="sys_user_role" domainObjectName="UserRole"
+               enableCountByExample="false" enableDeleteByExample="fasle"
+               enableSelectByExample="false" enableUpdateByExample="false"
+               selectByExampleQueryId="fasle" />-->
+        <table tableName="c_album" domainObjectName="Album"
                enableCountByExample="false" enableDeleteByExample="fasle"
                enableSelectByExample="false" enableUpdateByExample="false"
                selectByExampleQueryId="fasle" />
