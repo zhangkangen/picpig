@@ -1,9 +1,11 @@
 package com.zhang.picpig.controller;
 
+import com.zhang.picpig.service.AlbumService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,8 @@ import springfox.documentation.annotations.ApiIgnore;
 @RequestMapping("album")
 public class AlbumController {
 
+    @Autowired
+    private AlbumService albumService;
 
     /**
      * 相册详情
@@ -42,6 +46,7 @@ public class AlbumController {
     @ApiIgnore
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public String userAlbums(@PathVariable Integer id) {
+
         return "album/albums";
     }
 
