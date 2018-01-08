@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.picpig.mapper.MVisitMapper" >
+  <resultMap id="BaseResultMap" type="com.zhang.picpig.entity.MVisit" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="visited_user_id" property="visitedUserId" jdbcType="INTEGER" />
+    <result column="visit_time" property="visitTime" jdbcType="TIMESTAMP" />
+    <result column="visit_type" property="visitType" jdbcType="INTEGER" />
+    <result column="visit_source_id" property="visitSourceId" jdbcType="INTEGER" />
+    <result column="visit_state" property="visitState" jdbcType="INTEGER" />
+    <result column="create_by" property="createBy" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleted_tag" property="deletedTag" jdbcType="BIT" />
+  </resultMap>
+</mapper>

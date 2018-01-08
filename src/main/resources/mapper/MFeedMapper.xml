@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.picpig.mapper.MFeedMapper" >
+  <resultMap id="BaseResultMap" type="com.zhang.picpig.entity.MFeed" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="feed_content" property="feedContent" jdbcType="VARCHAR" />
+    <result column="feed_img" property="feedImg" jdbcType="VARCHAR" />
+    <result column="feed_time" property="feedTime" jdbcType="TIMESTAMP" />
+    <result column="feed_type" property="feedType" jdbcType="INTEGER" />
+    <result column="feed_state" property="feedState" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_by" property="createBy" jdbcType="INTEGER" />
+    <result column="update_by" property="updateBy" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleted_tag" property="deletedTag" jdbcType="BIT" />
+  </resultMap>
+</mapper>
